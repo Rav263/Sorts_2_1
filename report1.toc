@@ -1,0 +1,7 @@
+\select@language {russian}
+\contentsline {section}{Постановка задачи}{2}
+\contentsline {section}{Результаты экспериментов}{3}
+\contentsline {section}{Структура программы и спецификация функций}{4}
+\contentsline {section}{Отладка программы, тестирование функций}{5}
+\contentsline {section}{Анализ допущенных ошибок}{6}
+\contentsline {section}{Список цитируемой литературы}{7}
