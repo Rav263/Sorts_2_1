@@ -23,13 +23,18 @@ void print_arr(long long *a, int n){
 }
 
 
+long long comp(long long a, long long b){
+  return mod(a) - mod(b);
+}
+
+
 int find_max_index(long long *a, int start, int n){
   int max_index = start;
   long long max = a[start];
 
   for(int i = start; i < n; i++){
     ner += 1;
-    if(mod(a[i]) > mod(max)){
+    if(comp(a[i], max) > 0){
       max_index = i;
 
       max = a[i];
@@ -37,6 +42,8 @@ int find_max_index(long long *a, int start, int n){
   }
   return max_index;
 }
+
+
 
 void sort_vst(long long *a, int n){
   for(int i = 0; i < n; i++){
@@ -52,7 +59,28 @@ void sort_vst(long long *a, int n){
 
 
 void quick_sort(long long *a, int n){
+  int rel_index = (n) / 2; 
   
+  long long rel = a[rel_index];
+
+  int left  = 0;
+  int right = n - 1;
+
+
+  for(;left <= right;){
+    printf("%d %d\n",left, right); 
+    for(;comp(a[right], rel) > 0;) right--;
+    for(;comp(a[left],  rel) < 0;) left++;
+
+    if(left <= right){
+      swap(a + left, a + right);
+      left++;
+      right--;
+    }
+  }
+
+  if(left  < n - 1) quick_sort(a + left - 1,  n); 
+  if(right > 0)     quick_sort(a, right + 1);
 }
 
 
@@ -61,22 +89,27 @@ int main(void){
 
   int n = 10;
 
-  long long array[n];
+  long long array0[n];
+  long long array1[n];
+
 
   for(int i = 0; i < n; i++){
     int now = rand() % 100;
     int znk = rand() % 2;
 
-    array[i] = now - 2 * znk * (now);
+    array0[i] = now - 2 * znk * now;
+    array1[i] = now - 2 * znk * now;
   }
 
-  print_arr(array, n);
+  print_arr(array0,  n);
+  
+  quick_sort(array0, n);
+  print_arr(array0,  n);
+  
+  sort_vst(array1,   n);
+  print_arr(array1,  n);
 
-
-  sort_vst(array, n);
-
-  print_arr(array, n);
-  printf("swaps: %lld, srav: %lld\n", swp, ner);
+  printf("swaps in array 1: %lld, srav: %lld\n", swp, ner);
 
   return 0;
 }
