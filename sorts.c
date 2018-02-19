@@ -5,17 +5,17 @@
 long long ner = 0;
 long long swp = 0;
 
-void swap(long long *a, long long *b){
+void swap(long long *a, long long *b){ //замена местами двух элементов по их указателям
   long long temp = *a;
   *a = *b;
   *b = temp;
 }
 
-int mod(long long a){
+int mod(long long a){ //модуль числа
   return a < 0 ? -a : a;
 }
 
-void print_array(long long *a, int n){
+void print_array(long long *a, int n){ //печать массива
   for(int i = 0; i < n; i++){
     printf("%lld ", a[i]);
   }
@@ -23,12 +23,12 @@ void print_array(long long *a, int n){
 }
 
 
-long long comp(long long a, long long b){
+long long comp(long long a, long long b){ //разность модулей двух чисел
   return mod(a) - mod(b);
 }
 
 
-int find_max_index(long long *a, int start, int n){
+int find_max_index(long long *a, int start, int n){ //поиск индекса макстмального индекса в массиве
   int max_index = start;
   long long max = a[start];
 
@@ -46,6 +46,8 @@ int find_max_index(long long *a, int start, int n){
 
 
 void sort_vst(long long *a, int n){
+  //сортировка поиском максимума
+  //ищем максимум вставляем на текущий индекс
   for(int i = 0; i < n; i++){
     int max_index = find_max_index(a, i, n);
 
@@ -58,6 +60,9 @@ void sort_vst(long long *a, int n){
 }
 
 int partition (long long *a, int p, int r){
+  //один шаг быстрой сортировки 
+  //от выбранного опорного элемента размещаем остальные
+  //в данной части массива
   long long x = *(a+r);
   int i = p - 1;
   int j;
@@ -77,20 +82,24 @@ int partition (long long *a, int p, int r){
 }
 
 void quicksort (long long *a, int p, int r){
+  //быстрая сортировка от данного участка массива,
+  //рекурентная часть
   int q;
   if (p < r){
-    q = partition (a, p, r);
-    quicksort (a, p, q - 1);
-    quicksort (a, q + 1, r);
+    q = partition (a, p, r); //размещение элементов в данной части
+    quicksort (a, p, q - 1); //сортировка левой части
+    quicksort (a, q + 1, r); //сортировка правой части
   }
 }
 
 void quick_sort(long long *a, int n){
+  //оболочка для быстрой сортировки 
   quicksort(a, 0, n - 1);
 }
 
 
 void gen_obrt(long long *a, long long *b, int n){
+  //генерация двух массивов в обратном порядке
   for(int i = 0; i < n; i++){
     a[i] = i + 1;
     b[i] = i + 1;
@@ -98,6 +107,7 @@ void gen_obrt(long long *a, long long *b, int n){
 }
 
 void gen_norm(long long *a, long long *b, int n){
+  //генерация двух массивов в прямом порядке
   for(int i = 0; i < n; i++){
     a[i] = n - i;
     b[i] = n - i;
@@ -105,6 +115,7 @@ void gen_norm(long long *a, long long *b, int n){
 }
 
 void gen_rand(long long *a, long long *b, int n){
+  //генерация двух массивов со случайными элементами
   for(int i = 0; i < n; i++){
     int now = rand() ;
     int znk = rand() % 2;
