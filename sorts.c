@@ -160,7 +160,7 @@ int main(void){
 
     quick_sort(array0, n);
     if(some)print_array(array0, n);
-    printf("swaps in array 0: %lld, srav: %lld\n", swp, ner);
+    printf("swaps in array 0: %lld, compairs: %lld\n", swp, ner);
 
     swp = 0;
     ner = 0;
@@ -169,11 +169,12 @@ int main(void){
     
     sort_vst(array1, n);
     if(some)print_array(array1, n);
-    printf("swaps in array 1: %lld, srav: %lld\n", swp, ner);
+    printf("swaps in array 1: %lld, compairs: %lld\n", swp, ner);
   
     free(array0);
     free(array1);
 
     printf("\n");
   }
+  return 0;
 }
