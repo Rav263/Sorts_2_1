@@ -12,7 +12,7 @@
 
 
 \usepackage{fontspec}
-\setmainfont{Liberation Serif}   %% нужен какой-нибудь установленный _в системе_ шрифт
+\setmainfont{Comic Sans MS}   %% нужен какой-нибудь установленный _в системе_ шрифт
                            %% с поддержкой русского
 
 
@@ -145,22 +145,29 @@
 \begin{itemize}
   \item {\bf void swap(long long *a, long long *b)} меняет два числа по данным указателям.
   \item {\bf long long mod(long long a)} возвращает модуль числа.
-  \item {\bf void print_array(long long *a, int n)} печатает данный массив длины n.
+  \item {\bf void print\_array(long long *a, int n)} печатает данный массив длины n.
   \item {\bf long long comp(long long a, long long b)} возвращает разность модулей двух чисел.
-  \item {\bf int find_max_index(long long *a, int start, int n)} находит индекс максимального элемента в данной части массива.
+  \item {\bf int find\_max\_index(long long *a, int start, int n)} находит индекс максимального элемента в данной части массива.
+  \item {\bf void sort\_vst(long long *a, int n)} Сортировка выбором.
+  \item {\bf int partition(long long *a, int p, int r)} Основная часть быстрой сортировки, которая выбирает опорный элемент в данном куске массива. И расставляет остальные относительно него.
+  \item {\bf void quicksort(long long *a, int p, int r)} Быстрая сортировка.
+  \item {\bf void quick\_sort(long long *a, int n)} Оболочка для быстрой сортировки.
+  \item {\bf void gen\_obrt(long long *a, long long *b, int n)} Генерация массива с обратным порядком элементов.
+  \item {\bf void gen\_norm(long long *a, long long *b, int n)} Генерация массива с прямым порядком элементов.
+  \item {\bf void gen\_rand(long long *a, long long *b, int n)} Генерация массива со случайными элементами.
 \end{itemize}
 
 \newpage
 
 \section{Отладка программы, тестирование функций}
 
-В данном разделе необходимо изложить, как именно производилось тестирование
-и отладка методов сортировки. Тестирование предполагает наличие как минимум
-трех тестов.
+Сначала была написаана сортировка выбором. Потом были написаны три функции генерации массивов.
+На трёх вариантах массива была протестировна первая сортировка вставками. Правильность сортировки была проверена специальной функцией, которая ныне удалена. Затем была написана быстрая сортировка. Которая также тестировалась на трёх вариантах массива. 
 
 \newpage
 
 \section{Анализ допущенных ошибок}
+
 
 \newpage
 \begin{raggedright}
