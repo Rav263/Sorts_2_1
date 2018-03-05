@@ -120,8 +120,8 @@ void gen_rand(long long *a, long long *b, int n){
     int now = rand() ;
     int znk = rand() % 2;
 
-    a[i] = now - 2 * znk * now;
-    b[i] = now - 2 * znk * now;
+    a[i] = (now - 2 * znk * now) % 100;
+    b[i] = (now - 2 * znk * now) % 100;
   }
 }
 
@@ -133,11 +133,11 @@ int main(void){
     
   for(int i = 0; i < 4; i++){
     printf("number of elements %d\n", n);
-    for(int type = 1; type < 5; type++){
+    //for(int type = 1; type < 5; type++){
     swp = 0;
     ner = 0;
     
-    /*printf("Please, enter type of array (or -1 to exit)\n");
+    printf("Please, enter type of array (or -1 to exit)\n");
     int type;
     scanf("%d", &type);
     if(type == -1)return 0;
@@ -150,8 +150,8 @@ int main(void){
     printf("If you want to print arrays, enter 1\n");
     int some;
     scanf("%d", &some);
-    if(some == -1)return 0;*/
-    int some = 0;
+    if(some == -1)return 0;
+    //int some = 0;
     
 
 
@@ -181,9 +181,9 @@ int main(void){
     free(array0);
     free(array1);
 
-    printf("\n");
-    }
-    n *= 10;
+    //printf("\n");
+    //}
+    //n *= 10;
   }
   return 0;
 }
